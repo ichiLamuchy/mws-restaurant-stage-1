@@ -1,0 +1,23 @@
+{
+  "name": "mws-restaurant-stage-1",
+  "version": "1.0.0",
+  "description": "Google Scholorship MObile Web Specialist",
+  "main": "index.html",
+  "dependencies": {
+    "localforage": "^1.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ichiLamuchy/mws-restaurant-stage-1.git"
+  },
+  "author": "Ichi Satoko Ichimura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ichiLamuchy/mws-restaurant-stage-1/issues"
+  },
+  "homepage": "https://github.com/ichiLamuchy/mws-restaurant-stage-1#readme"
+}
