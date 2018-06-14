@@ -8,28 +8,45 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    const port = 8000 // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    const port = 1337 // Change this to your server port
+    return `http://localhost:${port}/restaurants`;
   }
 
   /**
    * Fetch all restaurants.
+   * using localforge
    */
   static fetchRestaurants(callback) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', DBHelper.DATABASE_URL);
-    xhr.onload = () => {
-      if (xhr.status === 200) { // Got a success response from server!
-        const json = JSON.parse(xhr.responseText);
-        const restaurants = json.restaurants;
-        callback(null, restaurants);
-      } else { // Oops!. Got an error from server.
-        const error = (`Request failed. Returned status of ${xhr.status}`);
-        callback(error, null);
+    return DBHelper.getRestaurantsLocally()
+    .then(response => {
+      if (response) {
+        // just fetch (newest)from network port 1337
+        DBHelper.getRestaurantsRemotely()
+        return callback(null, response)
+        // if it is the first time
+      } else {
+        return DBHelper.getRestaurantsRemotely(callback)
       }
-    };
-    xhr.send();
+    })
   }
+
+  static saveRestaurants(restaurants) {
+    return localforage.setItem('restaurants', restaurants)
+  }
+
+  static getRestaurantsLocally() {
+    return localforage.getItem('restaurants')
+  }
+
+  static getRestaurantsRemotely(callback = () => null) {
+    return fetch(DBHelper.DATABASE_URL)
+      .then(response => response.json())
+      .then(json => {
+        DBHelper.saveRestaurants(json)
+        return callback(null, json)
+      })
+  }
+
 
   /**
    * Fetch a restaurant by its ID.
@@ -150,7 +167,7 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    return (`/img/${restaurant.id}.jpg`);
   }
 
   /**
