@@ -4,8 +4,20 @@
 <head>
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <link rel="stylesheet" href="css/styles.css">
+
   <link href="css/mediaquery1.css" rel="stylesheet" media="(min-width:701px)">
   <link href="css/mediaquery2.css" rel="stylesheet" media="(max-width:520px)">
+  <link rel="nanifest" href="manifest.json" >
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-status-bar-style" content="black">
+
+  <meta name="mobile-web-app-title" content="Restaurant App">
+  <meta name="touch-icon" content="img/icons/icon-152x152.png">
+
+  <meta name="msapplication-TitleImage" content="img/icons/icon-144x144.png">
+  <meta name="msapplication-TitleColor" content="#c121f3">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.rawgit.com/mozilla/localForage/master/dist/localforage.js"></script>
   <title>Restaurant Reviews</title>
@@ -26,10 +38,10 @@
       <div class="filter-options">
         <h2>Filter Results</h2>
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
-          <option value="all">All Neighborhoods</option>
+          <option label="all" value="all">All Neighborhoods</option>
         </select>
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
-          <option value="all">All Cuisines</option>
+          <option label="all" value="all">All Cuisines</option>
         </select>
       </div>
       <ul id="restaurants-list"></ul>

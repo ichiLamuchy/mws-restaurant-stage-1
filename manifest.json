@@ -1,11 +1,45 @@
 {
   "name": "mws-restaurant",
-  "short_name": "restaurant-app",
+  "short_name": "EatApp",
+  "icons": [
+    {
+      "src": "img/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icons/icon-122x122.png",
+      "sizes": "122x122",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    }
+
+  ],
+
+  "start_url": "index.html",
+
   "theme_color": "#c121f3",
   "background_color": "#21f3eb",
-  "display": "browser",
+  "display": "standalone",
   "Scope": "/",
-  "start_url": "/",
-  "icons": null,
   "splash_pages": null
 }
